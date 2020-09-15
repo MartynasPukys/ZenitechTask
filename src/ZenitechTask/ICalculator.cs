@@ -4,11 +4,12 @@ using System.Text;
 
 namespace ZenitechTask
 {
-    interface ICalculator
+    public interface ICalculator
     {
         void Push(int number);
         void Pop();
         int Add();
         int Sub();
+        int StackItemCount();
     }
 }

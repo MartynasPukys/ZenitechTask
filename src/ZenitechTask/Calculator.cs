@@ -56,7 +56,9 @@ namespace ZenitechTask
             else throw new Exception($"Stack must contain at least 2 numbers. Current count: {_numbers.Count}.");
         }
 
+        public int StackItemCount() => _numbers.Count;
+
         //Ensures unsigned "10 bit" stack numbers by calculating modulo of result and maximum 10 bit number
-        private int Modulo10Bit(int x) => x - MAXIMUM_10_BIT_NUMBER * (x / MAXIMUM_10_BIT_NUMBER);
+        private int Modulo10Bit(int x) => (x % MAXIMUM_10_BIT_NUMBER + MAXIMUM_10_BIT_NUMBER) % MAXIMUM_10_BIT_NUMBER;
     }
 }
