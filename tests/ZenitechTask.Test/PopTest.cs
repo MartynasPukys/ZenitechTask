@@ -1,5 +1,4 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 
 namespace ZenitechTask.Test
 {
@@ -15,7 +14,7 @@ namespace ZenitechTask.Test
             calculator.Pop();
 
             //Assert
-            Assert.Equal(0, calculator.StackItemCount());
+            Assert.Equal(0, calculator.StackValueCount());
         }
 
         [Fact]
@@ -29,7 +28,7 @@ namespace ZenitechTask.Test
             calculator.Pop();
 
             //Assert
-            Assert.Equal(0, calculator.StackItemCount());
+            Assert.Equal(0, calculator.StackValueCount());
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ZenitechTask
 {
+    /*I was thinking of ushort variables everywhere as they are closest to 10 bit unsigned integers specified in requirements.
+    But additional casting of calculations seemed adding more complexity to whole than ushorts being beneficial.*/
     public class Calculator : ICalculator
     {
-        private const int MAXIMUM_10_BIT_NUMBER = 1024;
         private const int MAXIMUM_STACK_CAPACITY = 5;
         private Stack<int> _numbers { get; set; }
 
@@ -26,7 +26,7 @@ namespace ZenitechTask
                 _numbers.Push(result);
                 return result;
             }
-            else throw new Exception($"Stack must contain at least 2 numbers. Current count: {_numbers.Count}.");
+            else throw new Exception($"Stack must contain at least 2 values. Current count: {_numbers.Count}.");
         }
 
         public void Pop()
@@ -53,12 +53,12 @@ namespace ZenitechTask
 
                 return result;
             }
-            else throw new Exception($"Stack must contain at least 2 numbers. Current count: {_numbers.Count}.");
+            else throw new Exception($"Stack must contain at least 2 values. Current count: {_numbers.Count}.");
         }
 
-        public int StackItemCount() => _numbers.Count;
+        public int StackValueCount() => _numbers.Count;
 
-        //Ensures unsigned "10 bit" stack numbers by calculating modulo of result and maximum 10 bit number
-        private int Modulo10Bit(int x) => (x % MAXIMUM_10_BIT_NUMBER + MAXIMUM_10_BIT_NUMBER) % MAXIMUM_10_BIT_NUMBER;
+        // Ensures unsigned "10 bit" stack numbers by calculating modulo of result and maximum 10 bit number (1024)
+        private int Modulo10Bit(int x) => (x % 1024 + 1024) % 1024;
     }
 }

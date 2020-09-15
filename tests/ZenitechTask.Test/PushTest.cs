@@ -30,7 +30,7 @@ namespace ZenitechTask.Test
             calculator.Push(2);
 
             //Assert
-            Assert.Equal(1, calculator.StackItemCount());
+            Assert.Equal(1, calculator.StackValueCount());
         }
     }
 }
